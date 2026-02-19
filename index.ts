@@ -26,6 +26,7 @@ import type { Request, Response } from 'express';
 import * as z from 'zod/v4';
 
 import { InMemoryEventStore } from './inMemoryEventStore.js';
+import { registerPersonalNotesFeatures } from './text.js';
 
 // Check for OAuth flag
 const useOAuth = process.argv.includes('--oauth');
@@ -161,6 +162,9 @@ const getServer = () => {
             };
         }
     );
+
+    // Personal notes demo: resource + tool + prompt.
+    registerPersonalNotesFeatures(server);
 
     return server;
 };
