@@ -1,13 +1,12 @@
 {
-    "name": "FirstMCP",
+    "name": "first-mcp",
     "private": true,
     "version": "1.0.0",
-    "description": "First MCP example server implementation",
+    "description": "First MCP server implementation",
     "license": "MIT",
     "type": "module",
     "engines": {
-        "node": ">=20",
-        "pnpm": ">=10.24.0"
+        "node": ">=20"
     },
     "packageManager": "pnpm@10.24.0",
     "keywords": [
@@ -15,37 +14,17 @@
         "mcp"
     ],
     "scripts": {
-        "typecheck": "tsgo -p tsconfig.json --noEmit",
-        "build": "tsdown",
-        "build:watch": "tsdown --watch",
-        "prepack": "npm run build:esm && npm run build:cjs",
-        "lint": "eslint src/ && prettier --ignore-path ../../.prettierignore --check .",
-        "lint:fix": "eslint src/ --fix && prettier --ignore-path ../../.prettierignore --write .",
-        "check": "npm run typecheck && npm run lint",
-        "start": "npm run server",
-        "server": "tsx watch --clear-screen=false scripts/cli.ts server",
-        "client": "tsx scripts/cli.ts client"
+        "start": "tsx index.ts"
     },
     "dependencies": {
-
-        "@hono/node-server": "catalog:runtimeServerOnly",
-        "@modelcontextprotocol/examples-shared": "workspace:^",
-        "@modelcontextprotocol/node": "workspace:^",
-        "@modelcontextprotocol/server": "workspace:^",
-        "@modelcontextprotocol/express": "workspace:^",
-        "@modelcontextprotocol/hono": "workspace:^",
-        "better-auth": "^1.4.17",
-        "cors": "catalog:runtimeServerOnly",
-        "express": "catalog:runtimeServerOnly",
-        "hono": "catalog:runtimeServerOnly",
-        "zod": "catalog:runtimeShared"
+        "@modelcontextprotocol/sdk": "^1.26.0",
+        "express": "^5.2.1",
+        "zod": "^4.3.6"
     },
     "devDependencies": {
-        "@modelcontextprotocol/eslint-config": "workspace:^",
-        "@modelcontextprotocol/tsconfig": "workspace:^",
-        "@modelcontextprotocol/vitest-config": "workspace:^",
-        "@types/cors": "catalog:devTools",
-        "@types/express": "catalog:devTools",
-        "tsdown": "catalog:devTools"
+        "@types/express": "^5.0.3",
+        "@types/node": "^25.3.0",
+        "tsx": "^4.20.5",
+        "typescript": "^5.9.2"
     }
 }
